@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Yan.js example</title>
+    <script src="../bower_components/react/react.min.js"></script>
+    <script src="../bower_components/fetch/fetch.js"></script>
+    <script src="../bower_components/drop/drop.js"></script>
+    <link rel="stylesheet" href="../bower_components/drop/css/drop-theme-basic.css">
+    <link rel="stylesheet" href="../bower_components/drop/css/drop-theme-arrows-bounce.css">
+    <link rel="stylesheet" href="../bower_components/drop/css/drop-theme-hubspot-popovers.css">
+    <link rel="stylesheet" href="../dist/yan.css">
+    <style>
+      #yan-btn {
+        margin-left: 500px;
+        margin-top: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="button" value="颜" id="yan-btn" />
+    <script type="text/javascript" src="../dist/bundle.js"></script>
+    <script type="text/javascript">
+      var target = document.getElementById('yan-btn');
+      Yan.init(target, {
+        onSelect: function(emoticon) {
+          alert(emoticon);
+        }
+      });
+    </script>
+  </body>
+</html>

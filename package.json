@@ -1,0 +1,17 @@
+{
+  "name": "yan.js",
+  "scripts": {
+    "dev": "watchify src/yan.js -t [ reactify --es6 ] -o dist/bundle.js --standalone Yan -d",
+    "dist": "browserify src/yan.js -t [ reactify --es6 ] -g uglifyify -o dist/bundle.min.js --standalone Yan"
+  },
+  "dependencies": {
+    "uniq": "~1.0.1",
+    "extend": "~2.0.0"
+  },
+  "devDependencies": {
+    "browserify": "~9.0.3",
+    "reactify": "~1.0.0",
+    "uglifyify": "~3.0.1",
+    "watchify": "~2.4.0"
+  }
+}

@@ -1,0 +1,26 @@
+.emoticon-box .emoticon-list {
+  width: 410px;
+  height: 192px;
+  border: 1px solid #DBDBDB;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding: 0;
+}
+
+.emoticon-box .emoticon {
+  cursor: pointer;
+  float: left;
+  width: 80px;
+  height: 30px;
+  border: 1px solid #DBDBDB;
+  line-height: 29px;
+  text-align: center;
+  background: #FFF;
+  list-style: none;
+  font-size: 10px;
+  overflow: hidden;
+} 
+
+.emoticon-box .emoticon:hover {
+  background: #F0F0F0;
+}
