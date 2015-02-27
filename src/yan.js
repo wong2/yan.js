@@ -51,7 +51,8 @@ var EmoticonBox = React.createClass({
 var EmoticonList = React.createClass({
 
   handleSelect(event) {
-    this.props.onSelect(event.target.innerText);
+    var text = event.target.textContent || event.target.innerText;
+    this.props.onSelect(text);
   },
 
   render() {
