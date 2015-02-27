@@ -1218,3 +1218,7 @@ a.subdued:hover {
 .downloads {
   margin-bottom: 1.5em;
 }
+#demo-input {
+  outline: none;
+  width: 50%;
+}
