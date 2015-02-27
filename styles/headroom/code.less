@@ -1,0 +1,28 @@
+pre, code {
+  font-family: Consolas,Monaco,'Andale Mono',monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+
+  .tabs(4);
+  .hyphens(none);
+}
+
+pre {
+  overflow: auto;
+  margin: 1.5em 0;
+}
+
+code {
+  .micro;
+  //tends to be a bit big so let's shrink a lil'!
+  @media @deskBreakpoint{
+    .nano;
+  }
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  .wrap();
+}

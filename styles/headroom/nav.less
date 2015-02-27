@@ -1,0 +1,29 @@
+.nav {
+  padding: 0;
+
+  list-style: none;
+  margin-bottom: 0;
+
+  float: right;
+
+  &__item {
+
+    display: inline-block;
+
+    @media @navBreakpoint {
+      display: inline-block;
+    }
+
+    &:hover {
+      background-color: fade(@primaryColor,10);
+    }
+
+    a {
+      //give us nice big targets
+      display:inline-block;
+      padding: 1em;
+
+      border: none;
+    }
+  }
+}

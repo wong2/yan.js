@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Yan.js</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="给输入框增加颜文字组件">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+    <link rel="stylesheet" href="//cdn.rawgit.com/HubSpot/drop/master/css/drop-theme-basic.css">
+    <link rel="stylesheet" href="//cdn.rawgit.com/HubSpot/drop/master/css/drop-theme-arrows-bounce.css">
+    <link rel="stylesheet" href="//rawgit.com/wong2/yan.js/master/dist/yan.css"></script>
+    <link rel="stylesheet" href="styles/main.css">
+  </head>
+
+  <body>
+    <header id="header" class="header header--fixed hide-from-print" role="banner">
+      <div class="container" >
+        <nav id="nav" class="nav-wrapper" role="navigation">
+          <ul class="nav">
+            <li class="nav__item ">
+              <a class="header__link subdued" href="https://github.com/wong2/yan.js">
+                <span class="complimentary push--left">Star on GitHub</span>
+              </a>
+            </li>
+            <li class="nav__item ">
+              <a class="header__link subdued" href="https://github.com/wong2">
+                <span class="complimentary push--left">@wong2</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <a href="" class="brand header__link">
+          <b class="brand__forename">Yan</b><b class="brand__surname">.js</b>
+        </a>
+      </div>
+    </header>
+
+    <article>
+      <header class="feature">
+        <div class="container container--wide">
+          <h1 class="feature__title">Yan.js</h1>
+          <p class="feature__subtitle">Add emoticons to your input bar. ヘ(^_^ヘ)</p>
+        </div>
+      </header>
+
+      <div class="container block main" role="main">
+
+        <h2>Install</h2>
+        <pre><code class="bash">bower install yan.js</code></pre>
+         
+        <h2>Demo</h2>
+        <div class="demo">
+          <input type="text" id="demo-input">
+          <input type="button" value="颜" id="demo-btn" />
+        </div>
+        <pre>
+<code class="javascript">var target = document.getElementById('demo-btn');
+Yan.init(target, {
+  onSelect: function(emoticon) {
+    document.getElementById('demo-input').value += emoticon + ' ';
+  }
+});</code></pre>
+
+        <h2>Usage</h2>
+        <p>Head over to the <a href="https://github.com/wong2/yan.js/blob/master/examples/index.html">minimal example</a>.</p>
+
+      </div>
+    </article>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/react/0.12.2/react.min.js"></script>
+    <script src="//cdn.rawgit.com/github/fetch/master/fetch.js"></script>
+    <script src="//cdn.rawgit.com/HubSpot/drop/master/drop.min.js"></script>
+    <script src="//rawgit.com/wong2/yan.js/master/dist/bundle.min.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/languages/javascript.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <script>
+      var target = document.getElementById('demo-btn');
+      Yan.init(target, {
+        onSelect: function(emoticon) {
+          document.getElementById('demo-input').value += emoticon + ' ';
+        }
+      });
+    </script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-37435578-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
+  </body>
+
+</html>

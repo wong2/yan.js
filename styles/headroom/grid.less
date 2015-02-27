@@ -1,0 +1,50 @@
+.grid {
+
+  margin-left:-@gridGutter;
+  margin-bottom:0;
+  .clearfix;
+  
+  list-style:none; // allow us to use the `.grid` class on lists.
+
+  &--rev > &__item {
+    float:right;
+  }
+
+  // Very infrequently occuring grid wrappers as children of grid wrappers.
+  & > & {
+    margin-left:0;
+  }
+
+  &__item {
+    float:left;
+    padding-left: @gridGutter;
+  }
+}
+
+.grid-ns(@ns : ~"") {
+  .@{ns}one-whole      { width : 100%; }
+
+  .@{ns}one-half       { width : 50%; }
+
+  .@{ns}one-third      { width : 33.333%; }
+  .@{ns}two-thirds     { width : 66.666%; }
+
+  .@{ns}one-quarter    { width : 25%; }
+  .@{ns}two-quarters   { width : 50%; }
+  .@{ns}three-quarters { width : 75%; }
+
+  .@{ns}one-fifth      { width : 20%; }
+  .@{ns}two-fifths     { width : 40%; }
+  .@{ns}three-fifths   { width : 60%; }
+  .@{ns}four-fifths    { width : 80%; }
+}
+
+
+.grid-ns();
+
+@media @lapBreakpoint {
+  .grid-ns(lap--);
+}
+@media @deskBreakpoint {
+  .grid-ns(desk--);
+}

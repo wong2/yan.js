@@ -1,0 +1,40 @@
+.transition(@properties : all, @duration: 0.2s, @timing: linear) {
+    -webkit-transition: @properties @duration @timing;
+    -moz-transition   : @properties @duration @timing;
+    -o-transition     : @properties @duration @timing;
+    transition        : @properties @duration @timing;
+}
+
+.selection(@bgColor, @color, @shadow: transparent) {
+  ::selection {
+    background-color: @bgColor !important;
+    color: @color !important;
+    text-shadow: 1px 1px 1px @shadow;
+  }
+  ::-moz-selection {
+    background-color: @bgColor !important;
+    color: @color !important;
+    text-shadow: 1px 1px 1px @shadow;
+  }
+}
+
+.tabs(@size) {
+  -moz-tab-size: @size;
+  -o-tab-size: @size;
+  tab-size: @size;
+}
+
+.hyphens(@what) {
+  -webkit-hyphens: @what;
+  -moz-hyphens: @what;
+  -ms-hyphens: @what;
+  hyphens: @what;
+}
+
+.wrap() {
+  white-space: pre-wrap;       /* css-3 */
+  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}

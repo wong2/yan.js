@@ -1,0 +1,17 @@
+a { 
+  text-decoration: none;
+  border-bottom: 2px solid fade(@secondaryColor,50%);
+  .transition(border-color, 0.2s);
+
+  color: @darkColor;
+
+  &:hover,
+  &:focus {
+    border-color: @secondaryColor;
+  }
+
+  &:target,
+  &:focus {
+    outline: none;
+  }
+}
