@@ -24,3 +24,8 @@
 .emoticon-box .emoticon:hover {
   background: #F0F0F0;
 }
+
+.emoticon-box .search-box {
+  margin-bottom: 10px;
+  outline: none;
+}
