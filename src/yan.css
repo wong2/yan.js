@@ -29,3 +29,12 @@
   margin-bottom: 10px;
   outline: none;
 }
+
+
+.drop-element.drop-theme-arrows .drop-content {
+  background: #fff !important;
+}
+
+.drop-element.drop-theme-arrows.drop-element-attached-bottom.drop-element-attached-center .drop-content:before {
+  border-top-color: #fff !important;
+}
