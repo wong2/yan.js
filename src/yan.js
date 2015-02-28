@@ -96,7 +96,7 @@ var Yan = {
 
     drop = new Drop({
       target: target,
-      classes: 'drop-theme-arrows-bounce',
+      classes: 'drop-theme-arrows',
       content: elem,
       position: 'top center',
       constrainToWindow: true,
