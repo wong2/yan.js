@@ -1,4 +1,4 @@
-(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.Yan = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.Yan = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"/Users/wong2/codes/react/yan.js/node_modules/extend/index.js":[function(require,module,exports){
 var hasOwn = Object.prototype.hasOwnProperty;
 var toString = Object.prototype.toString;
 var undefined;
@@ -81,7 +81,7 @@ module.exports = function extend() {
 };
 
 
-},{}],2:[function(require,module,exports){
+},{}],"/Users/wong2/codes/react/yan.js/node_modules/uniq/uniq.js":[function(require,module,exports){
 "use strict"
 
 function unique_pred(list, compare) {
@@ -140,110 +140,102 @@ function unique(list, compare, sorted) {
 
 module.exports = unique
 
-},{}],3:[function(require,module,exports){
-var uniq = require(2);
-var extend = require(1);
+},{}],"/Users/wong2/codes/react/yan.js/src/yan.js":[function(require,module,exports){
+"use strict";
 
-var EmoticonBox = React.createClass({displayName: "EmoticonBox",
+var _toConsumableArray = function (arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) arr2[i] = arr[i]; return arr2; } else { return Array.from(arr); } };
 
-  loadDataFromServer:function() {
-    fetch(this.props.dataSource)
-      .then(function(response)  {
-        return response.json();
-      })
-      .then(function(json)  {
-        this.setState({data: json.list});
-      }.bind(this))
-      .catch(function(error)  {
-        console.log('request failed', error)
-      });
+var uniq = require("uniq");
+var extend = require("extend");
+
+var EmoticonBox = React.createClass({ displayName: "EmoticonBox",
+
+  loadDataFromServer: function loadDataFromServer() {
+    var _this = this;
+
+    fetch(this.props.dataSource).then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      _this.setState({ data: json.list });
+    })["catch"](function (error) {
+      console.log("request failed", error);
+    });
   },
 
-  componentDidMount:function() {
+  componentDidMount: function componentDidMount() {
     this.loadDataFromServer();
   },
 
-  getInitialState:function() {
-    return {searchText: '', data: []};
+  getInitialState: function getInitialState() {
+    return { searchText: "", data: [] };
   },
 
-  handleSearch:function() {
+  handleSearch: function handleSearch() {
     this.setState({
       searchText: this.refs.searchBox.getDOMNode().value
     });
   },
 
-  render:function() {
+  render: function render() {
     var emoticons = [];
     var searchText = this.state.searchText.trim();
-    this.state.data.forEach(function(group) {
-      if (!searchText || group.tag.split(' ').indexOf(searchText) >= 0) {
-        Array.prototype.push.apply(emoticons, group.yan);
+    this.state.data.forEach(function (group) {
+      if (!searchText || group.tag.split(" ").indexOf(searchText) >= 0) {
+        emoticons.push.apply(emoticons, _toConsumableArray(group.yan));
       }
     });
-    return (
-      React.createElement("div", {className: "emoticon-box"}, 
-        React.createElement("input", {type: "text", className: "search-box", ref: "searchBox", placeholder: "关键词搜索，如: 掀桌", onChange: this.handleSearch, value: this.state.searchText}), 
-        React.createElement(EmoticonList, {emoticons: uniq(emoticons), onSelect: this.props.onSelect})
-      )
-    );
+    return React.createElement("div", { className: "emoticon-box" }, React.createElement("input", { type: "text", className: "search-box", ref: "searchBox", placeholder: "关键词搜索，如: 掀桌", onChange: this.handleSearch, value: this.state.searchText }), React.createElement(EmoticonList, { emoticons: uniq(emoticons), onSelect: this.props.onSelect }));
   }
 
 });
 
-var EmoticonList = React.createClass({displayName: "EmoticonList",
+var EmoticonList = React.createClass({ displayName: "EmoticonList",
 
-  handleSelect:function(event) {
+  handleSelect: function handleSelect(event) {
     var text = event.target.textContent || event.target.innerText;
     this.props.onSelect(text);
   },
 
-  render:function() {
-    var emoticonNodes = this.props.emoticons.map(function(emoticon)  {
-      return (
-        React.createElement("li", {className: "emoticon", onClick: this.handleSelect, key: emoticon}, 
-          emoticon
-        )
-      );
-    }.bind(this));
-    return (
-      React.createElement("ul", {className: "emoticon-list"}, 
-        emoticonNodes
-      )
-    );
+  render: function render() {
+    var _this = this;
+
+    var emoticonNodes = this.props.emoticons.map(function (emoticon) {
+      return React.createElement("li", { className: "emoticon", onClick: _this.handleSelect, key: emoticon }, emoticon);
+    });
+    return React.createElement("ul", { className: "emoticon-list" }, emoticonNodes);
   }
 
 });
 
 var Yan = {
 
-  init: function(target, opts) {
+  init: function init(target, opts) {
     opts = extend({
-      dataSource: 'https://cdn.rawgit.com/turingou/o3o/master/yan.json',
-      onSelect: function() {},
+      dataSource: "https://cdn.rawgit.com/turingou/o3o/master/yan.json",
+      onSelect: function onSelect() {},
       closeOnSelect: true
     }, opts);
 
     var drop = null;
 
     var originalOnSelect = opts.onSelect;
-    opts.onSelect = function(o) {
+    opts.onSelect = function (o) {
       if (drop && opts.closeOnSelect) {
         drop.close();
       }
       originalOnSelect(o);
     };
 
-    var elem = document.createElement('div');
-    React.render(React.createElement(EmoticonBox, React.__spread({},  opts)), elem);
+    var elem = document.createElement("div");
+    React.render(React.createElement(EmoticonBox, React.__spread({}, opts)), elem);
 
     drop = new Drop({
       target: target,
-      classes: 'drop-theme-arrows-bounce',
+      classes: "drop-theme-arrows-bounce",
       content: elem,
-      position: 'top center',
+      position: "top center",
       constrainToWindow: true,
-      openOn: 'click'
+      openOn: "click"
     });
   }
 
@@ -252,5 +244,6 @@ var Yan = {
 module.exports = Yan;
 
 
-},{"1":1,"2":2}]},{},[3])(3)
+
+},{"extend":"/Users/wong2/codes/react/yan.js/node_modules/extend/index.js","uniq":"/Users/wong2/codes/react/yan.js/node_modules/uniq/uniq.js"}]},{},["/Users/wong2/codes/react/yan.js/src/yan.js"])("/Users/wong2/codes/react/yan.js/src/yan.js")
 });

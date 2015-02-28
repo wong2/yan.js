@@ -35,7 +35,7 @@ var EmoticonBox = React.createClass({
     var searchText = this.state.searchText.trim();
     this.state.data.forEach(function(group) {
       if (!searchText || group.tag.split(' ').indexOf(searchText) >= 0) {
-        Array.prototype.push.apply(emoticons, group.yan);
+        emoticons.push(...group.yan);
       }
     });
     return (
