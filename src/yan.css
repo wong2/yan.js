@@ -7,6 +7,13 @@
   padding: 0;
 }
 
+@media only screen 
+and (max-width: 400px) {
+  .emoticon-box .emoticon-list {
+    width: 90%;
+  }
+}
+
 .emoticon-box .emoticon {
   cursor: pointer;
   float: left;
